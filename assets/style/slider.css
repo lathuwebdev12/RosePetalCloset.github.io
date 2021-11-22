@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wrapper {
+  border: 1px solid #ffffff;
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  margin: auto;
+  right: 10%;
+  top: 10rem;
+}
+
+.wrapper .container {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-perspective-origin: 50%;
+          perspective-origin: 50%;
+}
+
+.wrapper .image-cube {
+  width: 300px;
+  height: 300px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.image-cube div {
+  height: 300px;
+  width: 300px;
+  position: absolute;
+}
+
+img {
+  width: 100%;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.front {
+  -webkit-transform: translateZ(150px);
+          transform: translateZ(150px);
+}
+
+.front img {
+  height: 250px;
+  width: 200px;
+}
+
+.right {
+  -webkit-transform: rotateY(-270deg) translateX(150px);
+          transform: rotateY(-270deg) translateX(150px);
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+}
+
+.back {
+  -webkit-transform: translateZ(-150px) rotateY(180deg);
+          transform: translateZ(-150px) rotateY(180deg);
+}
+
+.left {
+  -webkit-transform: rotateY(270deg) translateX(-150px);
+          transform: rotateY(270deg) translateX(-150px);
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+}
+
+.btns {
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.btns button {
+  background-color: transparent;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  background: #0a3342;
+  padding: 8px 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}

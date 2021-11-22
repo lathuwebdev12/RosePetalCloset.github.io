@@ -1,0 +1,128 @@
+// variables
+$gradient-1: linear-gradient(to bottom, #ff2ae0, #645bf6);
+$gradient-2: linear-gradient(to bottom, #ffec61, #f321d7);
+$gradient-3: linear-gradient(to bottom, #24ff72, #9a4eff);
+$shadow: 0 15px 0 #fff,
+inset 0 -15px 0 rgba(255, 255, 255, 0.25),
+0 30px 0 rgba(0, 0, 0, 0.15);
+
+// variables
+// mixins
+@mixin lathu($flex-1, $flex-2, $flex-3) {
+  display: $flex-1;
+  justify-content: $flex-2;
+  align-items: $flex-3;
+}
+
+@mixin measure($top, $left, $width, $height, $right) {
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+  right: $right;
+}
+
+// mixins
+
+.Card-container {
+  @include lathu(flex, center, center);
+  flex-wrap: wrap;
+  position: static;
+  background: #2d314d;
+
+
+  .card-container {
+    position: relative;
+    @include measure(none, none, 320px, 450px, none);
+    background: #287bff;
+    margin: 30px;
+    border-radius: 20px;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
+    box-shadow: $shadow;
+    overflow: hidden;
+    @include lathu(flex, center, flex-start);
+
+    &::before {
+      content: "";
+      position: absolute;
+      @include measure(-120px, -40px, 100%, 150%, none);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+      transform: rotate(27deg);
+      pointer-events: none;
+      filter: blur(5px);
+    }
+
+    &:nth-child(1) {
+      background: $gradient-1;
+    }
+
+    &:nth-child(2) {
+      background: $gradient-2;
+    }
+
+    &:nth-child(3) {
+      background: $gradient-3;
+    }
+
+    .icon {
+      position: relative;
+      @include measure(none, none, 140px, 120px, none);
+      @include lathu(flex, center, none);
+      background: #2d314d;
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+      box-shadow: $shadow;
+
+      &::before {
+        content: "";
+        position: absolute;
+        @include measure(0, -50px, 50px, 50px, none);
+        background: transparent;
+        border-top-right-radius: 50px;
+        box-shadow: 15px -15px 0 15px #2d314d;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        @include measure(0, none, 50px, 50px, -50px);
+        top: 0;
+        right: -50px;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border-top-left-radius: 50px;
+        box-shadow: -15px -15px 0 15px #2d314d;
+      }
+
+      i.fa {
+        position: absolute;
+        top: 20px;
+        color: #fff;
+        font-size: 4em;
+
+
+      }
+    }
+
+    .content {
+      position: absolute;
+      width: 100%;
+      padding: 30px;
+      padding-top: 150px;
+      text-align: center;
+
+      h2 {
+        font-size: 2em;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #fff;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
